@@ -1,0 +1,35 @@
+import math
+
+def resolver_ecuacion_cuadratica(a, b, c):
+  
+    discriminante = b**2 - 4*a*c
+
+    
+    if discriminante > 0:
+        
+        A1 = (-b + math.sqrt(discriminante)) / (2*a)
+        A2 = (-b - math.sqrt(discriminante)) / (2*a)
+        return A1, A2
+    elif discriminante == 0:
+
+        x = -b / (2*a)
+        return x,
+    else:
+        parte_real = -b / (2*a)
+        parte_imaginaria = math.sqrt(abs(discriminante)) / (2*a)
+        A1 = complex(parte_real, parte_imaginaria)
+        A2 = complex(parte_real, -parte_imaginaria)
+        return A1, A2
+
+a = float(input("Ingrese el coeficiente a: "))
+b = float(input("Ingrese el coeficiente b: "))
+c = float(input("Ingrese el coeficiente c: "))
+
+
+soluciones = resolver_ecuacion_cuadratica(a, b, c)
+
+
+if len(soluciones) == 1:
+    print(f"La solución es x = {soluciones[0]}")
+else:
+    print(f"Las soluciones son A1 = {soluciones[0]} y A2 = {soluciones[1]}")
